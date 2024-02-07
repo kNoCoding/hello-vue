@@ -1,19 +1,26 @@
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
+    <p>im the header</p>
   </header>
 
   <main>
-    <ShowTime></ShowTime>
+    <ShowTime />
+    <CountDown v-bind:myProps="`this is a prop`" v-bind:targetTime="Date.now() + 1000 * 11" @due="handleDueEvent" />
   </main>
 
-  <footer>im the footer</footer>
+  <footer>
+    <p>im the footer</p>
+  </footer>
 </template>
 
 <script setup>
 import ShowTime from './components/ShowTime.vue'
+import CountDown from './components/CountDown.vue'
+
+function handleDueEvent() {
+  console.log('Countdown is due!')
+}
+
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

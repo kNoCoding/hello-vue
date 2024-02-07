@@ -18,7 +18,7 @@ export default {
             this.currentTime = new Date()
         }, 1000)
     },
-    beforeDestroy() {
+    beforeUnmount() {
         clearInterval(this.interval)
     },
     computed: {
